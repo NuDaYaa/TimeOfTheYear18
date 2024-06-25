@@ -1,0 +1,65 @@
+﻿<Window x:Class="MonthInfoApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Month Info Application" Height="400" Width="600" FontSize="12"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Панель с флажками для включения/выключения GroupBox -->
+        <StackPanel Orientation="Vertical" Margin="10" Grid.Row="0">
+            <CheckBox Name="cbAutomatic" Content="Автоматический расчет" IsChecked="True" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            <CheckBox Name="cbManual" Content="Ручной расчет" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+        </StackPanel>
+
+        <!-- GroupBox для автоматического расчета -->
+        <GroupBox Name="gbAutomatic" Header="Автоматический расчет" Margin="10" Grid.Row="1">
+            <StackPanel>
+                <RadioButton GroupName="Months" Content="Январь" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Февраль" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Март" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Апрель" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Май" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Июнь" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Июль" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Август" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Сентябрь" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Октябрь" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Ноябрь" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="Months" Content="Декабрь" Checked="RadioButton_Checked"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- GroupBox для ручного расчета -->
+        <GroupBox Name="gbManual" Header="Ручной расчет" Margin="10" Grid.Row="1" Visibility="Collapsed">
+            <StackPanel>
+                <RadioButton GroupName="ManualMonths" Content="Январь"/>
+                <RadioButton GroupName="ManualMonths" Content="Февраль"/>
+                <RadioButton GroupName="ManualMonths" Content="Март"/>
+                <RadioButton GroupName="ManualMonths" Content="Апрель"/>
+                <RadioButton GroupName="ManualMonths" Content="Май"/>
+                <RadioButton GroupName="ManualMonths" Content="Июнь"/>
+                <RadioButton GroupName="ManualMonths" Content="Июль"/>
+                <RadioButton GroupName="ManualMonths" Content="Август"/>
+                <RadioButton GroupName="ManualMonths" Content="Сентябрь"/>
+                <RadioButton GroupName="ManualMonths" Content="Октябрь"/>
+                <RadioButton GroupName="ManualMonths" Content="Ноябрь"/>
+                <RadioButton GroupName="ManualMonths" Content="Декабрь"/>
+                <Button Content="Рассчитать" Click="CalculateButton_Click"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Поле вывода информации -->
+        <TextBox Name="txtOutput" Margin="10" Grid.Row="2" IsReadOnly="True"/>
+
+        <!-- Кнопки "Выход" и "О программе" -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Grid.Row="2">
+            <Button Content="О программе" Click="AboutButton_Click" Margin="0,0,10,0"/>
+            <Button Content="Выход" Click="ExitButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
